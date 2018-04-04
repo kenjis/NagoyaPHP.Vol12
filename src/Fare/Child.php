@@ -1,5 +1,4 @@
 <?php
-
 namespace NagoyaPhp\Vol12\Fare;
 
 class Child extends Fare
