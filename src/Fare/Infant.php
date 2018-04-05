@@ -23,8 +23,8 @@ class Infant extends Fare
         return false;
     }
 
-    protected function calcNormalFare()
+    protected function calcRegularFare()
     {
-        return $this->calcHalf($this->adultNormalFare);
+        return $this->calcHalf($this->adultRegularFare);
     }
 }

@@ -3,13 +3,13 @@ namespace NagoyaPhp\Vol12\Fare;
 
 abstract class Fare
 {
-    protected $adultNormalFare;
+    protected $adultRegularFare;
     protected $pass = false;
     protected $welfare = false;
 
-    public function __construct($adultNormalFare)
+    public function __construct($adultRegularFare)
     {
-        $this->adultNormalFare = $adultNormalFare;
+        $this->adultRegularFare = $adultRegularFare;
     }
 
     public function calc()
@@ -18,13 +18,13 @@ abstract class Fare
             return 0;
         }
 
-        $normalFare = (int) $this->calcNormalFare();
+        $regularFare = (int) $this->calcRegularFare();
 
         if ($this->welfare) {
-            return (int) $this->calcHalf($normalFare);
+            return (int) $this->calcHalf($regularFare);
         }
 
-        return $normalFare;
+        return $regularFare;
     }
 
     public function withPass()
@@ -37,7 +37,7 @@ abstract class Fare
         $this->welfare = true;
     }
 
-    abstract protected function calcNormalFare();
+    abstract protected function calcRegularFare();
 
     protected function calcHalf($price)
     {

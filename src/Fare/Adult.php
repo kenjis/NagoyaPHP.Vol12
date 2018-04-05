@@ -12,8 +12,8 @@ class Adult extends Fare
         return false;
     }
 
-    protected function calcNormalFare()
+    protected function calcRegularFare()
     {
-        return $this->adultNormalFare;
+        return $this->adultRegularFare;
     }
 }
