@@ -77,6 +77,7 @@ class Group
             if ($a->calc() === $b->calc()) {
                 return 0;
             }
+
             return ($a->calc() < $b->calc()) ? 1 : -1;
         });
     }

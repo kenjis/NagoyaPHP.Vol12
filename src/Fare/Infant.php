@@ -5,6 +5,11 @@ class Infant extends Fare
 {
     private $adult = false;
 
+    public function withAdult()
+    {
+        $this->adult = true;
+    }
+
     protected function isFree()
     {
         if ($this->adult) {
@@ -21,10 +26,5 @@ class Infant extends Fare
     protected function calcNormalFare()
     {
         return $this->calcHalf($this->adultNormalFare);
-    }
-
-    public function withAdult()
-    {
-        $this->adult = true;
     }
 }

@@ -1,7 +1,6 @@
 <?php
 namespace NagoyaPhp\Vol12\Fare;
 
-use NagoyaPhp\Vol12\Exception\RuntimeException;
 use PHPUnit\Framework\TestCase;
 
 class FactoryTest extends TestCase
@@ -14,7 +13,7 @@ class FactoryTest extends TestCase
         $fare = $factory->createFare($adultNormalFare, $passenager);
 
         $this->assertInstanceOf(Adult::class, $fare);
-        $this->assertEquals(210, $fare->calc());
+        $this->assertSame(210, $fare->calc());
     }
 
     public function test_Aは大人、pは定期あり()
@@ -25,7 +24,7 @@ class FactoryTest extends TestCase
         $fare = $factory->createFare($adultNormalFare, $passenager);
 
         $this->assertInstanceOf(Adult::class, $fare);
-        $this->assertEquals(0, $fare->calc());
+        $this->assertSame(0, $fare->calc());
     }
 
     public function test_Cは子供、nは通常料金()
@@ -36,7 +35,7 @@ class FactoryTest extends TestCase
         $fare = $factory->createFare($adultNormalFare, $passenager);
 
         $this->assertInstanceOf(Child::class, $fare);
-        $this->assertEquals(110, $fare->calc());
+        $this->assertSame(110, $fare->calc());
     }
 
     public function test_Cは子供、wは福祉割引()
@@ -47,11 +46,11 @@ class FactoryTest extends TestCase
         $fare = $factory->createFare($adultNormalFare, $passenager);
 
         $this->assertInstanceOf(Child::class, $fare);
-        $this->assertEquals(60, $fare->calc());
+        $this->assertSame(60, $fare->calc());
     }
 
     /**
-     * @expectedException RuntimeException
+     * @expectedException \RuntimeException
      * @expectedExceptionMessage 年齢区分が存在しません
      */
     public function test_存在しない年齢区分の場合は例外が発生する()
@@ -63,7 +62,7 @@ class FactoryTest extends TestCase
     }
 
     /**
-     * @expectedException RuntimeException
+     * @expectedException \RuntimeException
      * @expectedExceptionMessage 料金区分が存在しません
      */
     public function test_存在しない料金区分の場合は例外が発生する()
@@ -82,7 +81,7 @@ class FactoryTest extends TestCase
         $fare = $factory->createFare($adultNormalFare, $passenager);
 
         $this->assertInstanceOf(Infant::class, $fare);
-        $this->assertEquals(110, $fare->calc());
+        $this->assertSame(110, $fare->calc());
     }
 
     public function test_複数の乗客から料金グループが生成される()

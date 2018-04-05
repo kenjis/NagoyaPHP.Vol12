@@ -11,7 +11,7 @@ class GroupTest extends TestCase
         $adult = new Adult($adultNormalFare);
         $group = new Group();
         $group->add($adult);
-        $this->assertEquals(200, $group->calc());
+        $this->assertSame(200, $group->calc());
     }
 
     public function test_料金グループに大人200円2人の場合、料金は400円()
@@ -22,7 +22,7 @@ class GroupTest extends TestCase
         $group = new Group();
         $group->add($adult1);
         $group->add($adult2);
-        $this->assertEquals(400, $group->calc());
+        $this->assertSame(400, $group->calc());
     }
 
     public function test_幼児は同行者の大人1名につき2名まで無料()
@@ -39,7 +39,7 @@ class GroupTest extends TestCase
 
         $fare = $group->calc();
 
-        $this->assertEquals(200, $fare);
+        $this->assertSame(200, $fare);
     }
 
     public function test_幼児3名と大人1名の場合、大人料金プラス幼児料金()
@@ -58,7 +58,7 @@ class GroupTest extends TestCase
 
         $fare = $group->calc();
 
-        $this->assertEquals(300, $fare);
+        $this->assertSame(300, $fare);
     }
 
     public function test_大人定期券あり、子供通常、幼児通常、幼児福祉割引2人の場合、料金は170円()
@@ -82,6 +82,6 @@ class GroupTest extends TestCase
 
         $fare = $group->calc();
 
-        $this->assertEquals(170, $fare);
+        $this->assertSame(170, $fare);
     }
 }

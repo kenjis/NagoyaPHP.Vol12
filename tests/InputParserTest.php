@@ -15,7 +15,7 @@ class InputParserTest extends TestCase
         $input = '210:Cn,In,Iw,Ap,Iw';
         $result = $this->parser->parse($input);
 
-        $this->assertEquals(210, $result['fare']);
+        $this->assertSame(210, $result['fare']);
     }
 
     public function test_コロンの後が乗客の記号()
@@ -23,6 +23,6 @@ class InputParserTest extends TestCase
         $input = '210:Cn,In,Iw,Ap,Iw';
         $result = $this->parser->parse($input);
 
-        $this->assertEquals(['Cn', 'In', 'Iw', 'Ap', 'Iw'], $result['passengers']);
+        $this->assertSame(['Cn', 'In', 'Iw', 'Ap', 'Iw'], $result['passengers']);
     }
 }

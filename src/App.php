@@ -25,6 +25,7 @@ class App
     {
         $data = $this->inputParser->parse($input);
         $group = $this->factory->create($data['fare'], $data['passengers']);
+
         return $group->calc();
     }
 }
