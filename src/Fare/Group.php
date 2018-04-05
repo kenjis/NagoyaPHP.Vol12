@@ -61,7 +61,10 @@ class Group
 
         $this->sortInfants();
 
-        $maxFreeInfants = $this->countAdults() * $this->maxFreeInfantsPerAdult;
+        $maxFreeInfants = min(
+            count($this->infants),
+            $this->countAdults() * $this->maxFreeInfantsPerAdult
+        );
 
         for ($i = 0; $i < $maxFreeInfants; $i++) {
             $this->infants[$i]->withAdult();
