@@ -18,10 +18,10 @@ abstract class Fare
             return 0;
         }
 
-        $normalFare = $this->calcNormalFare();
+        $normalFare = (int) $this->calcNormalFare();
 
         if ($this->welfare) {
-            return $this->calcHalf($normalFare);
+            return (int) $this->calcHalf($normalFare);
         }
 
         return $normalFare;

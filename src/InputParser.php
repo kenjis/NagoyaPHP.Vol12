@@ -9,7 +9,7 @@ class InputParser
         $passenagers = explode(',', $rest);
 
         return [
-            'fare' => $fare,
+            'fare' => (int) $fare,
             'passengers' => $passenagers,
         ];
     }
